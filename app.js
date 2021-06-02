@@ -52,6 +52,35 @@ app.get('/covid_testing',(req,res)=>{
         res.render("covid_testing.hbs",{allData:data.data});
     })
 })
+
+
+
+app.get('/products',(req,res)=>{
+    fetch("https://fakestoreapi.com/products")
+    .then(res=>res.json())
+    .then((data)=>{
+        res.render('products.hbs',{item:data});
+    })
+})
+
+
+app.get('/products/:id',(req,res)=>{
+    // res.send(req.params.id)
+    let id = req.params.id
+    fetch("https://fakestoreapi.com/products")
+    .then(res=>res.json())
+    .then((data)=>{
+        data.map((element)=>{
+            if(element.id === Number(id)){
+                res.render('products.hbs',{singleData:element});
+            }
+        })
+    })
+})
+
+app.get('/payment',(req,res)=>{
+    res.render('payment.hbs');
+})
 app.listen(3200,()=>{
     console.log("Server is running on port 3200...");
 })

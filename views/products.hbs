@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.css">
+    <title>Document</title>
+    <style>
+       
+
+        body {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="row">
+            {{#each item}}
+            <div class="col-md-3 col-10 mx-auto mb-5">
+                <div class="card">
+                    <img src="{{image}}" width="300px" height="300px" class="card-img-top" alt="">
+                    <div class="card-text d-flex justify-content-between">
+                        ${{price}} <a href="http://localhost:3200/products/{{id}}" class="btn btn-danger">View
+                            Details</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row">
+                    <div class="col-md-6 col-12 mx-auto">
+                        <img src="{{singleData.image}}" width="300px!important" height="550px" class="card-img-top"
+                            alt="">
+                    </div>
+                    <div class="col-md-5 col-12 mx-auto">
+                        <h2> {{singleData.title}}</h2>
+                        <br><br>
+                        <h4>Description:<br><br> {{singleData.description}}</h4>
+                        <div class="mt-5">
+                            <h4> ${{singleData.price}}</h4>
+                            <a href="/payment" class="btn btn-success">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- <div class="col-md-5 col-10 mx-auto">
+                <div class="card">
+                    <img src="{{singleData.image}}" width="500px" height="450px" class="card-img-top" alt="">
+                    <div class="card-title mt-3">
+                        {{singleData.title}}
+                    </div>
+                    <div class="card-title">
+                        {{singleData.description}}
+                    </div>
+                    <div class="card-text d-flex justify-content-between">
+                        ${{singleData.price}}
+                        <a href="" class="btn btn-success">Buy Now</a>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+</body>
+
+</html>
