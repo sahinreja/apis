@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.css">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <table class="table table-collapse table-danger table-hover">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>confirmedCasesIndian</th>
+                    <th>confirmedCasesForeign</th>
+                    <th>discharged</th>
+                    <th>deaths</th>
+                    <th>confirmedButLocationUnidentified</th>
+                    {{!-- <th>States Name</th>
+                    <th>Total Confirm(State)</th> --}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each allData}}
+                <tr>
+                    <td>{{day}}</td>
+                    <td>{{summary.total}}</td>
+                    <td>{{summary.confirmedCasesIndian}}</td>
+                    <td>{{summary.confirmedCasesForeign}}</td>
+                    <td>{{summary.discharged}}</td>
+                    <td>{{summary.deaths}}</td>
+                    <td>{{summary.confirmedButLocationUnidentified}}</td>
+                    {{#each regional}}
+                      <tr>
+                          <td>{{loc}}</td>
+                          <td></td>
+                          <td>{{confirmedCasesIndian}}</td>
+                          <td>{{confirmedCasesForeign}}</td>
+                          <td>{{discharged}}</td>
+                          <td>{{deaths}}</td>
+                          <td>{{totalConfirmed}}</td>
+                      </tr>
+                    {{/each}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
